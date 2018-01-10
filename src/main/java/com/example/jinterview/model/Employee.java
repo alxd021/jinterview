@@ -27,6 +27,12 @@ public class Employee implements Serializable{
 
     @NotBlank
     private String firstName;
+    
+    private Integer tarif;
+    
+    @ManyToOne
+    @JoinColumn(name="employee_group_id")
+    private EmployeeGroup employeeGroup;
 
     @Column(nullable = false, updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
@@ -71,5 +77,21 @@ public class Employee implements Serializable{
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public int getTarif() {
+        return tarif;
+    }
+
+    public void setTarif(int tarif) {
+        this.tarif = tarif;
+    }
+
+    public EmployeeGroup getEmployeeGroup() {
+        return employeeGroup;
+    }
+
+    public void setEmployeeGroup(EmployeeGroup employeeGroup) {
+        this.employeeGroup = employeeGroup;
     }
 }
